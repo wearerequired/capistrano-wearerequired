@@ -32,7 +32,7 @@ The class `SlackistranoMessagingColors ` adds colors to the deploy messages post
 
 ```ruby
 set :slackistrano, {
-    klass: Capistrano::RequiredTools::SlackistranoMessagingColors,
+    class: Capistrano::RequiredTools::SlackistranoMessagingColors,
     channel: '#your-channel',
     webhook: 'your-incoming-webhook-url'
 }
