@@ -8,7 +8,7 @@ A collection of tools for Capistrano.
 1. Add this line to your application's Gemfile:
 
    ```ruby
-   gem 'capistrano-required_tools', :git => 'git@github.com:wearerequired/capistrano-required_tools.git'
+   gem 'capistrano-required_tools', :git => 'git@github.com:wearerequired/capistrano-required_tools.git', :tag => 'v0.0.1'
    ```
 
 2. Execute:
