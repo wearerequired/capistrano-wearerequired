@@ -39,3 +39,21 @@ set :slackistrano, {
 ```
 
 See [Customizing the Messaging](https://github.com/phallstrom/slackistrano/tree/v3.1.0#customizing-the-messaging) for more information.
+
+### Composer tasks
+
+To delete all content from Composer's cache directories run:
+
+```
+cap staging composer:clear_cache
+```
+
+## Changelog
+
+### 0.0.2
+
+* Added `composer:clear_cache` task.
+
+### 0.0.1
+
+* Initial version.
