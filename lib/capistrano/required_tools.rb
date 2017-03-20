@@ -6,3 +6,4 @@ module Capistrano
 end
 
 require "capistrano/required_tools/slackistrano_messaging_colors"
+require "capistrano/required_tools/composer.rb"
