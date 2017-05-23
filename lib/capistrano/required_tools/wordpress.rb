@@ -1,1 +1,1 @@
-load File.expand_path('../tasks/wp-cli.rake', __FILE__)
+load File.expand_path('../tasks/wordpress.rake', __FILE__)

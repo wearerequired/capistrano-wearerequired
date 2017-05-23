@@ -1,27 +1,21 @@
-# WordPress
-
-# WordPress Translations
-
-# Define the supported languages in deploy.rb
-# set :wp_langauges, [
-#   'de_DE',
-#   'fr_FR'
-# ]
-
 namespace :wordpress do
 
-  desc 'Install WordPress translations'
+  desc <<-DESC
+    Install WordPress translations.
+  DESC
   task :install_translations do
     on roles(:app) do
       within release_path do
-        fetch(:wp_languages).each do |language|
+        fetch(:wp_languages, []).each do |language|
           execute :wp, "core language install #{language}"
         end
       end
     end
   end
 
-  desc 'Update WordPress translations'
+  desc <<-DESC
+    Update WordPress translations.
+  DESC
   task :update_translations do
     on roles(:app) do
       within release_path do
@@ -30,3 +24,6 @@ namespace :wordpress do
     end
   end
 end
+
+after 'deploy:finishing', 'wordpress:install_translations'
+after 'deploy:finishing', 'wordpress:update_translations'
