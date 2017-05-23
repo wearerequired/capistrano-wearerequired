@@ -54,11 +54,30 @@ To **clean up all old releases** but the last run:
 cap staging deploy:cleanup_all
 ```
 
+To **install WordPress translations** set `:wp_language` and run:
+
+
+```
+set :wp_languages, [
+	'de_DE',
+	'it_IT
+]
+
+cap staging wordpress:install_translations
+```
+
+To **update WordPress translations** run:
+
+```
+cap staging wordpress: update_translations
+```
+
 ## Changelog
 
 ### 0.0.3
 
 * Added `deploy:cleanup_all` task.
+* Added `wordpress:install_translations` and `wordpress:update_translations` tasks.
 
 ### 0.0.2
 
