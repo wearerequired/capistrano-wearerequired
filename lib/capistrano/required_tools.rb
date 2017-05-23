@@ -8,4 +8,4 @@ end
 require "capistrano/required_tools/slackistrano_messaging_colors"
 require "capistrano/required_tools/composer.rb"
 require "capistrano/required_tools/capistrano.rb"
-require "capistrano/required_tools/wp-cli.rb"
+require "capistrano/required_tools/wordpress.rb"
