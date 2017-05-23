@@ -5,11 +5,13 @@ A collection of tools for Capistrano.
 
 ## Installation
 
-1. Add this line to your application's Gemfile:
+1. Add this line to your application's Gemfile to install the latest stable version:
 
    ```ruby
-   gem 'capistrano-required_tools', :git => 'git@github.com:wearerequired/capistrano-required_tools.git', :tag => 'v0.0.2'
+   gem 'capistrano-required_tools', :git => 'git@github.com:wearerequired/capistrano-required_tools.git', :branch => 'stable'
    ```
+
+   Use `:tag => 'v0.0.2'` for a specific version.
 
 2. Execute:
 
