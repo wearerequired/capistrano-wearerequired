@@ -40,15 +40,25 @@ set :slackistrano, {
 
 See [Customizing the Messaging](https://github.com/phallstrom/slackistrano/tree/v3.1.0#customizing-the-messaging) for more information.
 
-### Composer tasks
+### Additonal tasks
 
-To delete all content from Composer's cache directories run:
+To **delete all content from Composer's cache directories** run:
 
 ```
 cap staging composer:clear_cache
 ```
 
+To **clean up all old releases** but the last run:
+
+```
+cap staging deploy:cleanup_all
+```
+
 ## Changelog
+
+### 0.0.3
+
+* Added `deploy:cleanup_all` task.
 
 ### 0.0.2
 
