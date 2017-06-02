@@ -13,10 +13,10 @@ module Capistrano
 	    nil
 	  end
 
-	  # Suppress reverting message.
-	  def payload_for_reverting
-	    nil
-	  end
+      # Suppress reverting message.
+      def payload_for_reverting
+        nil
+      end
 
       def payload_for_reverted
         make_message(super.merge(color: 'good'))
