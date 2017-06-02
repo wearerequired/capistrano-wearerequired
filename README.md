@@ -11,7 +11,7 @@ A collection of tools for Capistrano.
    gem 'capistrano-required_tools', :git => 'git@github.com:wearerequired/capistrano-required_tools.git', :branch => 'stable'
    ```
 
-   Use `:tag => 'v0.0.2'` for a specific version.
+   Use `:tag => 'v0.3.0'` for a specific version.
 
 2. Execute:
 
@@ -76,15 +76,15 @@ cap staging wordpress: update_translations
 
 ## Changelog
 
-### 0.0.3
+### 0.3.0
 
 * Added `deploy:cleanup_all` task.
 * Added `wordpress:install_translations` and `wordpress:update_translations` tasks.
 
-### 0.0.2
+### 0.2.0
 
 * Added `composer:clear_cache` task.
 
-### 0.0.1
+### 0.1.0
 
 * Initial version.
