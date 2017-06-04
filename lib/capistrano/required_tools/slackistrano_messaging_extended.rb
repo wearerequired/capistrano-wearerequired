@@ -3,11 +3,6 @@ require 'slackistrano/capistrano'
 module Capistrano
   module RequiredTools
     class SlackistranoMessagingExtended < Slackistrano::Messaging::Base
-      # Get current revision
-      def revision(default = 'Unknown')
-        fetch(:current_revision)
-      end
-
       # Suppress updating message.
 	  def payload_for_updating
 	    nil
@@ -26,6 +21,24 @@ module Capistrano
         make_message(super.merge(color: 'danger'))
       end
 
+      # Get current revision
+      def revision(default = '2d89aefd03c26b71f17e4f8154d29eb496f287a2')
+        fetch(:current_revision, default)
+      end
+
+      # Get current revision URL
+	  def revision_url
+	    repo = repo_url.match(/(git@|https:\/\/)(?<host>([\w\.@]+))(\/|:)(?<owner>[\w,\-,\_]+)\/(?<repo>[\w,\-,\_]+)(.git){0,1}((\/){0,1})/)
+        repo.nil? ? revision : "<https://%{host}/%{owner}/%{repo}/%{commit}/%{revision}|%{revision_short}>" % {
+          :host => repo[:host],
+          :owner => repo[:owner],
+          :repo => repo[:repo],
+          :commit => repo[:host] == 'bitbucket.org' ? 'commits' : 'commit',
+          :revision => revision,
+          :revision_short => revision[0..10]
+        }
+      end
+
       # More detailed updated message.
       def payload_for_updated
       {
@@ -38,15 +51,15 @@ module Capistrano
             short: true
           }, {
             title: 'Branch',
-            value: revision ? branch + ' (' + revision + ')' : branch,
+            value: branch,
             short: true
           }, {
             title: 'Person',
             value: deployer,
             short: true
           }, {
-            title: 'Time',
-            value: elapsed_time,
+            title: 'Revision',
+            value: revision_url,
             short: true
           }],
           fallback: super[:text]
