@@ -22,7 +22,7 @@ module Capistrano
       end
 
       # Get current revision
-      def revision(default = '2d89aefd03c26b71f17e4f8154d29eb496f287a2')
+      def revision(default = 'Unknown')
         fetch(:current_revision, default)
       end
 
