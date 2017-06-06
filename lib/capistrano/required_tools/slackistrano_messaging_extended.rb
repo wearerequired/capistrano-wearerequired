@@ -103,7 +103,7 @@ module Capistrano
       {
         attachments: [{
           color: 'good',
-          title: application + ' deployed :white_check_mark:',
+          pretext: application + ' was successfully deployed :white_check_mark:',
           author_name: deployer.capitalize,
           author_icon: author_icon,
           author_link: author_link,
