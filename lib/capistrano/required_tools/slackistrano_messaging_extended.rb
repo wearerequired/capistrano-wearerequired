@@ -47,13 +47,14 @@ module Capistrano
 
       # Get current revision URL
       def current_revision_url
-        "<https://%{host}/%{owner}/%{repo}/%{commit}/%{revision}|%{revision_short}>" % {
+        "<https://%{host}/%{owner}/%{repo}/%{commit}/%{revision}|%{revision_short}@%{branch}>" % {
           :host => repo[:host],
           :owner => repo[:owner],
           :repo => repo[:repo],
           :commit => 'bitbucket.org' == repo[:host] ? 'commits' : 'commit',
           :revision => current_revision,
-          :revision_short => current_revision[0..10]
+          :revision_short => current_revision[0..10],
+          :branch => branch
         }
       end
 
@@ -112,10 +113,6 @@ module Capistrano
           fields: [{
             title: 'Environment',
             value: stage.capitalize,
-            short: true
-          }, {
-            title: 'Branch',
-            value: branch,
             short: true
           }, {
             title: 'Revision',
