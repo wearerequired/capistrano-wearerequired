@@ -4,9 +4,9 @@ module Capistrano
   module RequiredTools
     class SlackistranoMessagingExtended < Slackistrano::Messaging::Base
       # Suppress updating message.
-	  def payload_for_updating
-	    nil
-	  end
+      def payload_for_updating
+        nil
+      end
 
       # Suppress reverting message.
       def payload_for_reverting
@@ -22,11 +22,11 @@ module Capistrano
       end
 
       # Get current revision
-	  def current_revision
-	    fetch(:current_revision)
-	  end
+      def current_revision
+        fetch(:current_revision)
+      end
 
-	  # Get previous revision
+      # Get previous revision
       def previous_revision
         fetch(:previous_revision)
       end
@@ -46,28 +46,28 @@ module Capistrano
       end
 
       # Get current revision URL
-	  def current_revision_url
+      def current_revision_url
         "<https://%{host}/%{owner}/%{repo}/%{commit}/%{revision}|%{revision_short}>" % {
-		  :host => repo[:host],
-		  :owner => repo[:owner],
-		  :repo => repo[:repo],
-		  :commit => 'bitbucket.org' == repo[:host] ? 'commits' : 'commit',
-		  :revision => current_revision,
-		  :revision_short => current_revision[0..10]
-		}
+          :host => repo[:host],
+          :owner => repo[:owner],
+          :repo => repo[:repo],
+          :commit => 'bitbucket.org' == repo[:host] ? 'commits' : 'commit',
+          :revision => current_revision,
+          :revision_short => current_revision[0..10]
+        }
       end
 
       # Get revision comparison
-	  def revision_compare_url
+      def revision_compare_url
         "<https://%{host}/%{owner}/%{repo}/%{compare}/%{previous_revision}...%{current_revision}|%{revision_short}>" % {
-		  :host => repo[:host],
-		  :owner => repo[:owner],
-		  :repo => repo[:repo],
-		  :compare => 'bitbucket.org' == repo[:host] ? 'branches/compare' : 'compare',
-		  :current_revision => current_revision,
+          :host => repo[:host],
+          :owner => repo[:owner],
+          :repo => repo[:repo],
+          :compare => 'bitbucket.org' == repo[:host] ? 'branches/compare' : 'compare',
+          :current_revision => current_revision,
           :previous_revision => previous_revision,
           :revision_short => previous_revision[0..7] + '...' + current_revision[0..7]
-		}
+        }
       end
 
       def author_icon
@@ -109,9 +109,9 @@ module Capistrano
           author_link: author_link,
           footer: footer,
           footer_icon: footer_icon,
-	      fields: [{
+          fields: [{
             title: 'Environment',
-       	    value: stage.capitalize,
+            value: stage.capitalize,
             short: true
           }, {
             title: 'Branch',
