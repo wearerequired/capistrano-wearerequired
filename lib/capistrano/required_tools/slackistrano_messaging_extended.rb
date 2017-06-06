@@ -118,10 +118,6 @@ module Capistrano
             value: branch,
             short: true
           }, {
-            title: 'Time',
-            value: elapsed_time,
-            short: true
-          }, {
             title: 'Revision',
             value: revision,
             short: true
