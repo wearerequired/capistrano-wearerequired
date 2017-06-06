@@ -40,10 +40,8 @@ module Capistrano
       def revision
         if repo.nil? || current_revision.nil?
           'Unknown'
-        elsif previous_revision.nil?
-          current_revision_url
         else
-          revision_compare_url
+          current_revision_url
         end
       end
 
@@ -53,7 +51,7 @@ module Capistrano
 		  :host => repo[:host],
 		  :owner => repo[:owner],
 		  :repo => repo[:repo],
-		  :commit => repo[:host] == 'bitbucket.org' ? 'commits' : 'commit',
+		  :commit => 'bitbucket.org' == repo[:host] ? 'commits' : 'commit',
 		  :revision => current_revision,
 		  :revision_short => current_revision[0..10]
 		}
@@ -65,11 +63,39 @@ module Capistrano
 		  :host => repo[:host],
 		  :owner => repo[:owner],
 		  :repo => repo[:repo],
-		  :compare => repo[:host] == 'bitbucket.org' ? 'branches/compare' : 'compare',
+		  :compare => 'bitbucket.org' == repo[:host] ? 'branches/compare' : 'compare',
 		  :current_revision => current_revision,
           :previous_revision => previous_revision,
           :revision_short => previous_revision[0..7] + '...' + current_revision[0..7]
 		}
+      end
+
+      def author_icon
+        "https://required.com/content/themes/required-valencia/img/character-%{name}-300x300.png" % { name: deployer.downcase }
+      end
+
+      def author_link
+        "https://required.com/team/%{name}/" % { name: deployer.downcase }
+      end
+
+      def footer_icon
+        if repo.nil?
+         ''
+        elsif 'bitbucket.org' == repo[:host]
+          'https://bitbucket.org/site/master/avatar/64/'
+        elsif 'gitlab.com' == repo[:host]
+          'https://gitlab.com/uploads/system/project/avatar/13083/logo-extra-whitespace.png'
+        elsif 'github.com' == repo[:host]
+          'https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png'
+        end
+      end
+
+      def footer
+        if repo.nil? || current_revision.nil? || previous_revision.nil?
+          ''
+        else
+          'Diff: ' + revision_compare_url
+        end
       end
 
       # More detailed updated message.
@@ -78,6 +104,11 @@ module Capistrano
         attachments: [{
           color: 'good',
           title: application + ' deployed :white_check_mark:',
+          author_name: deployer.capitalize,
+          author_icon: author_icon,
+          author_link: author_link,
+          footer: footer,
+          footer_icon: footer_icon,
 	      fields: [{
             title: 'Environment',
        	    value: stage.capitalize,
@@ -87,8 +118,8 @@ module Capistrano
             value: branch,
             short: true
           }, {
-            title: 'Person',
-            value: deployer,
+            title: 'Time',
+            value: elapsed_time,
             short: true
           }, {
             title: 'Revision',
