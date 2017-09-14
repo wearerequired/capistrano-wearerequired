@@ -4,10 +4,11 @@ module Capistrano
   module RequiredTools
     class SlackistranoMessagingColors < Slackistrano::Messaging::Base
 
-      def initialize(env: nil, team: nil, channel: nil, token: nil, webhook: nil, icon_url: nil, icon_emoji: nil)
+      def initialize(env: nil, team: nil, channel: nil, token: nil, webhook: nil, icon_url: nil, icon_emoji: nil, username: nil)
         super(env: env, team: team, channel: channel, token: token, webhook: webhook)
         @icon_url = icon_url
         @icon_emoji = icon_emoji
+        @username = username
       end
 
       def payload_for_updating
@@ -40,6 +41,14 @@ module Capistrano
 
       def icon_emoji
         @icon_emoji
+      end
+
+      def username
+       if @username.nil?
+         super
+       else
+         @username
+       end
       end
 
       private ##################################################
