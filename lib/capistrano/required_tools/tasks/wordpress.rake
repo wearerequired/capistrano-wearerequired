@@ -25,5 +25,7 @@ namespace :wordpress do
   end
 end
 
-after 'deploy:finishing', 'wordpress:install_translations'
-after 'deploy:finishing', 'wordpress:update_translations'
+if !fetch(:wp_languages, []).empty?
+  after 'deploy:finishing', 'wordpress:install_translations'
+  after 'deploy:finishing', 'wordpress:update_translations'
+end
