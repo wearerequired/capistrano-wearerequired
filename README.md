@@ -30,13 +30,29 @@ A collection of tools for Capistrano.
 
 ### Colors for Slackistrano
 
-The class `SlackistranoMessagingColors ` adds colors to the deploy messages posted to Slack.
+The class `SlackistranoMessagingColors` adds colors to the deploy messages posted to Slack.
 
+Example:
 ```ruby
 set :slackistrano, {
     klass: Capistrano::RequiredTools::SlackistranoMessagingColors,
     channel: '#your-channel',
     webhook: 'your-incoming-webhook-url'
+}
+```
+
+### Extended Messaging for Slackistrano
+
+The class `SlackistranoMessagingExtended` adds colors, a link to the current diff, the current revision and branch, the name of the deployer and suppresses updating messages.
+
+Example:
+```ruby
+set :slackistrano, {
+    klass: Capistrano::RequiredTools::SlackistranoMessagingExtended,
+    channel: '#your-channel',
+    webhook: 'your-incoming-webhook-url',
+    icon_emoji: ':ship:',
+    username: 'deploybot'
 }
 ```
 
@@ -86,7 +102,9 @@ cap staging wordpress:clear_opcache
 ### 0.4.0
 
 * Added `wordpress:clear_opcache` task.
-
+* Added new messaging class for Slackistrano for more informative notifications.
+* Updated both messaging classes to support a custom icon (via `icon_url` or `icon_emoji`) and bot name (via `username`).
+ 
 ### 0.3.0
 
 * Added `deploy:cleanup_all` task.
