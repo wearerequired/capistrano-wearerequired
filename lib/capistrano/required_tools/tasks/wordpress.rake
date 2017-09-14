@@ -4,12 +4,12 @@ namespace :wordpress do
     Install WordPress translations.
   DESC
   task :install_translations do
-    unless fetch(:wp_languages).empty?
-      on roles(:app) do
-        within release_path do
-          fetch(:wp_languages).each do |language|
-            execute :wp, "core language install #{language}"
-          end
+    next unless fetch(:wp_languages).any?
+
+    on roles(:app) do
+      within release_path do
+        fetch(:wp_languages).each do |language|
+          execute :wp, "core language install #{language}"
         end
       end
     end
@@ -19,11 +19,11 @@ namespace :wordpress do
     Update WordPress translations.
   DESC
   task :update_translations do
-    unless fetch(:wp_languages).empty?
-      on roles(:app) do
-        within release_path do
-          execute :wp, "core language update"
-        end
+    next unless fetch(:wp_languages).any?
+
+    on roles(:app) do
+      within release_path do
+        execute :wp, "core language update"
       end
     end
   end
@@ -32,12 +32,12 @@ namespace :wordpress do
     Clear OPcache.
   DESC
   task :clear_opcache do
-    if fetch(:wp_clear_opcache)
-      on roles(:app) do
-        within release_path do
-          execute :wp, "plugin activate wp-cli-clear-opcache --quiet"
-          execute :wp, "opcache clear"
-        end
+    next unless fetch(:wp_clear_opcache)
+
+    on roles(:app) do
+      within release_path do
+        execute :wp, "plugin activate wp-cli-clear-opcache --quiet"
+        execute :wp, "opcache clear"
       end
     end
   end
