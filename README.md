@@ -58,7 +58,6 @@ cap staging deploy:cleanup_all
 
 To **install WordPress translations** set `:wp_language` and run:
 
-
 ```
 set :wp_languages, [
 	'de_DE',
@@ -74,7 +73,19 @@ To **update WordPress translations** run:
 cap staging wordpress: update_translations
 ```
 
+To **clear OPcache** of your site set `:wp_clear_opcache, true` and run:
+
+```
+cap staging wordpress:clear_opcache
+```
+
+(Requires the [WP-CLI Clear OPcache](https://packagist.org/packages/wearerequired/wp-cli-clear-opcache) plugin.)
+
 ## Changelog
+
+### 0.4.0
+
+* Added `wordpress:clear_opcache` task.
 
 ### 0.3.0
 
