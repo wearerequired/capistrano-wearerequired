@@ -8,7 +8,7 @@ Capistrano::Wearerequired is a collection of recipes and tasks specialized on Wo
 1. Add this line to your application's Gemfile to install the latest stable version:
 
    ```ruby
-   gem 'capistrano-wearerequired', '~> 0.4' 
+   gem 'capistrano-wearerequired', '~> 1.0'
    ```
 
 2. Execute:
@@ -22,8 +22,8 @@ Capistrano::Wearerequired is a collection of recipes and tasks specialized on Wo
    ```ruby
    require 'capistrano/wearerequired'
    ```
-   
-   
+
+
 ## Usage
 
 ### Colors for Slackistrano
@@ -56,7 +56,7 @@ set :slackistrano, {
 
 See [Customizing the Messaging](https://github.com/phallstrom/slackistrano/tree/v3.1.0#customizing-the-messaging) for more information.
 
-### Additonal tasks
+### Additional tasks
 
 To **delete all content from Composer's cache directories** run:
 
@@ -95,15 +95,19 @@ cap staging wordpress:clear_opcache
 
 (Requires the [WP-CLI Clear OPcache](https://packagist.org/packages/wearerequired/wp-cli-clear-opcache) plugin.)
 
+
 ## Changelog
+
+### 1.0.0
+
+* Renamed to `Capistrano::Wearerequired` and published on [rubygems.org](https://rubygems.org/gems/capistrano-wearerequired).
 
 ### 0.4.0
 
-* Renamed to `Capistrano::Wearerequired`.
 * Added `wordpress:clear_opcache` task.
 * Added new messaging class for Slackistrano for more informative notifications.
 * Updated both messaging classes to support a custom icon (via `icon_url` or `icon_emoji`) and bot name (via `username`).
- 
+
 ### 0.3.0
 
 * Added `deploy:cleanup_all` task.
