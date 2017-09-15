@@ -1,6 +1,6 @@
-# Capistrano::RequiredTools
+# Capistrano::Wearerequired
 
-A collection of tools for Capistrano.
+Capistrano::Wearerequired is a collection of recipes and tasks specialized on WordPress deployment.
 
 
 ## Installation
@@ -8,10 +8,8 @@ A collection of tools for Capistrano.
 1. Add this line to your application's Gemfile to install the latest stable version:
 
    ```ruby
-   gem 'capistrano-required_tools', :git => 'git@github.com:wearerequired/capistrano-required_tools.git', :branch => 'stable'
+   gem 'capistrano-wearerequired', '~> 0.4' 
    ```
-
-   Use `:tag => 'v0.3.0'` for a specific version.
 
 2. Execute:
 
@@ -22,7 +20,7 @@ A collection of tools for Capistrano.
 3. Require the library in your application's Capfile:
 
    ```ruby
-   require 'capistrano/required_tools'
+   require 'capistrano/wearerequired'
    ```
    
    
@@ -35,7 +33,7 @@ The class `SlackistranoMessagingColors` adds colors to the deploy messages poste
 Example:
 ```ruby
 set :slackistrano, {
-    klass: Capistrano::RequiredTools::SlackistranoMessagingColors,
+    klass: Capistrano::Wearerequired::SlackistranoMessagingColors,
     channel: '#your-channel',
     webhook: 'your-incoming-webhook-url'
 }
@@ -48,7 +46,7 @@ The class `SlackistranoMessagingExtended` adds colors, a link to the current dif
 Example:
 ```ruby
 set :slackistrano, {
-    klass: Capistrano::RequiredTools::SlackistranoMessagingExtended,
+    klass: Capistrano::Wearerequired::SlackistranoMessagingExtended,
     channel: '#your-channel',
     webhook: 'your-incoming-webhook-url',
     icon_emoji: ':ship:',
@@ -101,6 +99,7 @@ cap staging wordpress:clear_opcache
 
 ### 0.4.0
 
+* Renamed to `Capistrano::Wearerequired`.
 * Added `wordpress:clear_opcache` task.
 * Added new messaging class for Slackistrano for more informative notifications.
 * Updated both messaging classes to support a custom icon (via `icon_url` or `icon_emoji`) and bot name (via `username`).

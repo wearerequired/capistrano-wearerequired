@@ -6,11 +6,11 @@ require 'capistrano/wearerequired/version'
 Gem::Specification.new do |spec|
   spec.name        = "capistrano-wearerequired"
   spec.version     = Capistrano::Wearerequired::VERSION
-  spec.description = "Capistrano::wearerequired is a collection of recipes and tasks specialized on WordPress deployment."
+  spec.description = "Capistrano::Wearerequired is a collection of recipes and tasks specialized on WordPress deployment."
   spec.summary     = "Recipes for Capistrano used by required gmbh"
-  spec.authors     = ["wearerequired"]
+  spec.authors     = ["wearerequired", "Pascal Birchler", "Ulrich Pogson", "Dominik Schilling"]
   spec.email       = "info@required.ch"
-  spec.homepage    = "https://required.com"
+  spec.homepage    = "https://github.com/wearerequired/capistrano-wearerequired"
   spec.license     = "GPL-2.0+"
 
   spec.files         = `git ls-files -z`.split("\x0")
