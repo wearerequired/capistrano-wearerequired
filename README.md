@@ -1,4 +1,4 @@
-# Capistrano::Wearerequired
+# Capistrano::Wearerequired &middot; [![Gem Version](https://badge.fury.io/rb/capistrano-wearerequired.svg)](https://rubygems.org/gems/capistrano-wearerequired)
 
 Capistrano::Wearerequired is a collection of recipes and tasks specialized on WordPress deployment.
 
