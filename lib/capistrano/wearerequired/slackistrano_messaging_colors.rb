@@ -1,7 +1,7 @@
 require 'slackistrano/capistrano'
 
 module Capistrano
-  module RequiredTools
+  module Wearerequired
     class SlackistranoMessagingColors < Slackistrano::Messaging::Base
 
       def initialize(env: nil, team: nil, channel: nil, token: nil, webhook: nil, icon_url: nil, icon_emoji: nil, username: nil)
