@@ -26,9 +26,24 @@ Capistrano::Wearerequired is a collection of recipes and tasks specialized on Wo
 
 ## Usage
 
+### New Messaging Elements for Slackistrano
+
+The class `SlackistranoMessagingElements` allows change the bot icon with a emoji icon or image url and define the bot username.
+
+Example:
+```ruby
+set :slackistrano, {
+    klass: Capistrano::Wearerequired::SlackistranoMessagingElements,
+    channel: '#your-channel',
+    webhook: 'your-incoming-webhook-url',
+    icon_emoji: ':ship:',
+    username: 'deploybot'
+}
+```
+
 ### Colors for Slackistrano
 
-The class `SlackistranoMessagingColors` adds colors to the deploy messages posted to Slack.
+The class `SlackistranoMessagingColors` adds colors to the deploy messages posted to Slack. `SlackistranoMessagingColors` extends `SlackistranoMessagingElements`.
 
 Example:
 ```ruby
@@ -39,18 +54,16 @@ set :slackistrano, {
 }
 ```
 
-### Extended Messaging for Slackistrano
+### Expanded Git Messaging for Slackistrano
 
-The class `SlackistranoMessagingExtended` adds colors, a link to the current diff, the current revision and branch, the name of the deployer and suppresses updating messages.
+The class `SlackistranoExpandedGitMessaging` adds a link to the current diff, the current revision and branch, the name of the deployer and suppresses update messages. `SlackistranoExpandedGitMessaging` extends `SlackistranoMessagingColors`.
 
 Example:
 ```ruby
 set :slackistrano, {
-    klass: Capistrano::Wearerequired::SlackistranoMessagingExtended,
+    klass: Capistrano::Wearerequired::SlackistranoExpandedGitMessaging,
     channel: '#your-channel',
     webhook: 'your-incoming-webhook-url',
-    icon_emoji: ':ship:',
-    username: 'deploybot'
 }
 ```
 
@@ -101,9 +114,11 @@ cap staging wordpress:clear_opcache
 ### 1.0.0
 
 * Renamed to `Capistrano::Wearerequired` and published on [rubygems.org](https://rubygems.org/gems/capistrano-wearerequired).
+* Renamed `SlackistranoMessagingExtended` class to `SlackistranoExpandedGitMessaging`.
+* Moved support for custom icon (via `icon_url` or `icon_emoji`) and bot name (via `username`) to it's own class `SlackistranoMessagingElements`.
+* `SlackistranoExpandedGitMessaging` extends `SlackistranoMessagingColors` which extends `SlackistranoMessagingElements`.
 * Added `wordpress:clear_opcache` task.
 * Added new messaging class for Slackistrano for more informative notifications.
-* Updated both messaging classes to support a custom icon (via `icon_url` or `icon_emoji`) and bot name (via `username`).
 
 ### 0.3.0
 
