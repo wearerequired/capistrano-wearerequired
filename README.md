@@ -101,9 +101,6 @@ cap staging wordpress:clear_opcache
 ### 1.0.0
 
 * Renamed to `Capistrano::Wearerequired` and published on [rubygems.org](https://rubygems.org/gems/capistrano-wearerequired).
-
-### 0.4.0
-
 * Added `wordpress:clear_opcache` task.
 * Added new messaging class for Slackistrano for more informative notifications.
 * Updated both messaging classes to support a custom icon (via `icon_url` or `icon_emoji`) and bot name (via `username`).
