@@ -112,7 +112,7 @@ module Capistrano
             value: revision,
             short: true
           }],
-          fallback: super[:text]
+          fallback: application + ' was successfully deployed.'
         }]
       }
       end
