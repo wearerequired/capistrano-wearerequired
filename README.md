@@ -28,7 +28,7 @@ Capistrano::Wearerequired is a collection of recipes and tasks specialized on Wo
 
 ### New Messaging Elements for Slackistrano
 
-The class `SlackistranoMessagingElements` allows change the bot icon with a emoji icon or image url and define the bot username.
+The class `SlackistranoMessagingElements` allows to change the icon with an emoji or image URL and to define a custom username.
 
 Example:
 ```ruby
@@ -114,11 +114,10 @@ cap staging wordpress:clear_opcache
 ### 1.0.0
 
 * Renamed to `Capistrano::Wearerequired` and published on [rubygems.org](https://rubygems.org/gems/capistrano-wearerequired).
-* Renamed `SlackistranoMessagingExtended` class to `SlackistranoExpandedGitMessaging`.
-* Moved support for custom icon (via `icon_url` or `icon_emoji`) and bot name (via `username`) to it's own class `SlackistranoMessagingElements`.
-* `SlackistranoExpandedGitMessaging` extends `SlackistranoMessagingColors` which extends `SlackistranoMessagingElements`.
 * Added `wordpress:clear_opcache` task.
-* Added new messaging class for Slackistrano for more informative notifications.
+* Added new messaging classes for Slackistrano for more informative notifications.
+ * Moved support for custom icon (via `icon_url` or `icon_emoji`) and bot name (via `username`) to it's own class `SlackistranoMessagingElements`.
+ * `SlackistranoExpandedGitMessaging` extends `SlackistranoMessagingColors` which extends `SlackistranoMessagingElements`.
 
 ### 0.3.0
 
