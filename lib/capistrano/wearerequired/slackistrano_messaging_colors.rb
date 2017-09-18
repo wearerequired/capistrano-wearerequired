@@ -1,8 +1,6 @@
-require 'slackistrano/capistrano'
-
 module Capistrano
   module Wearerequired
-    class SlackistranoMessagingColors < Capistrano::Wearerequired::SlackistranoMessagingElements
+    class SlackistranoMessagingColors < SlackistranoMessagingElements
 
       def payload_for_updating
         make_message(super.merge(color: '#E7E7E7'))

@@ -1,8 +1,6 @@
-require 'slackistrano/capistrano'
-
 module Capistrano
   module Wearerequired
-    class SlackistranoExpandedGitMessaging < Capistrano::Wearerequired::SlackistranoMessagingColors
+    class SlackistranoExpandedGitMessaging < SlackistranoMessagingColors
 
       # Suppress updating message.
       def payload_for_updating
