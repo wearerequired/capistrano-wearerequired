@@ -54,6 +54,8 @@ set :slackistrano, {
 }
 ```
 
+![image](https://user-images.githubusercontent.com/1785641/30828166-73a570be-a245-11e7-8e1e-9eda33719179.png)
+
 ### Expanded Git Messaging for Slackistrano
 
 The class `SlackistranoExpandedGitMessaging` adds a link to the current diff, the current revision and branch, the name of the deployer and suppresses update messages. `SlackistranoExpandedGitMessaging` extends `SlackistranoMessagingColors`.
@@ -66,6 +68,8 @@ set :slackistrano, {
     webhook: 'your-incoming-webhook-url',
 }
 ```
+
+![image](https://user-images.githubusercontent.com/1785641/30828269-c5e55fc4-a245-11e7-8ac9-94cf299ef5a3.png)
 
 See [Customizing the Messaging](https://github.com/phallstrom/slackistrano/tree/v3.1.0#customizing-the-messaging) for more information.
 
