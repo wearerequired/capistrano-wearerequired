@@ -9,7 +9,7 @@ namespace :wordpress do
     on roles(:app) do
       within release_path do
         fetch(:wp_languages).each do |language|
-          execute :wp, "core language install #{language}"
+          execute :wp, "language core install #{language}"
         end
       end
     end
@@ -23,7 +23,7 @@ namespace :wordpress do
 
     on roles(:app) do
       within release_path do
-        execute :wp, "core language update"
+        execute :wp, "language core update"
       end
     end
   end
