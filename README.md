@@ -104,7 +104,7 @@ To **update WordPress translations** run:
 cap staging wordpress: update_translations
 ```
 
-To **clear OPcache** of your site set `:wp_clear_opcache, true` and run:
+To **clear OPcache** of your site `set :wp_clear_opcache, true` and run:
 
 ```
 cap staging wordpress:clear_opcache
