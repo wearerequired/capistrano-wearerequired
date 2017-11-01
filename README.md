@@ -115,13 +115,19 @@ cap staging wordpress:clear_opcache
 
 ## Changelog
 
+### 1.1.0
+
+* Support WP-CLI 1.2.0 and newer
+  In WP-CLI v1.2.0 the  `wp core language` command was changed to `wp language core`.
+* Get deployer's name from Git config in `SlackistranoMessagingElements`
+
 ### 1.0.0
 
 * Renamed to `Capistrano::Wearerequired` and published on [rubygems.org](https://rubygems.org/gems/capistrano-wearerequired).
 * Added `wordpress:clear_opcache` task.
 * Added new messaging classes for Slackistrano for more informative notifications.
- * Moved support for custom icon (via `icon_url` or `icon_emoji`) and bot name (via `username`) to it's own class `SlackistranoMessagingElements`.
- * `SlackistranoExpandedGitMessaging` extends `SlackistranoMessagingColors` which extends `SlackistranoMessagingElements`.
+  * Moved support for custom icon (via `icon_url` or `icon_emoji`) and bot name (via `username`) to its own class `SlackistranoMessagingElements`.
+  * `SlackistranoExpandedGitMessaging` extends `SlackistranoMessagingColors` which extends `SlackistranoMessagingElements`.
 
 ### 0.3.0
 
