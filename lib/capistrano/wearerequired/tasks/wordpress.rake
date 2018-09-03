@@ -10,6 +10,8 @@ namespace :wordpress do
       within release_path do
         fetch(:wp_languages).each do |language|
           execute :wp, "language core install #{language}"
+          execute :wp, "plugin list --field=name | xargs -I % wp language plugin install % #{language}"
+          execute :wp, "theme list --field=name | xargs -I % wp language theme install % #{language}"
         end
       end
     end
@@ -24,6 +26,8 @@ namespace :wordpress do
     on roles(:app) do
       within release_path do
         execute :wp, "language core update"
+        execute :wp, "language plugin update --all"
+        execute :wp, "language theme update --all"
       end
     end
   end
