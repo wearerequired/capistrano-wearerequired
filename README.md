@@ -115,9 +115,14 @@ cap staging wordpress:clear_opcache
 
 ## Changelog
 
+### 1.2.0
+
+* Support WP-CLI 2.0.0 and newer  
+  In WP-CLI 2.0.0 the `wp language plugin` and `wp language theme` commands were introduced.
+
 ### 1.1.0
 
-* Support WP-CLI 1.2.0 and newer
+* Support WP-CLI 1.2.0 and newer  
   In WP-CLI v1.2.0 the  `wp core language` command was changed to `wp language core`.
 * Get deployer's name from Git config in `SlackistranoMessagingElements`
 
