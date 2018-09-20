@@ -9,9 +9,9 @@ namespace :wordpress do
     on roles(:app) do
       within release_path do
         fetch(:wp_languages).each do |language|
-          execute :wp, "language core install #{language}", raise_on_non_zero_exit: false
-          execute :wp, "plugin list --field=name | xargs -I % wp language plugin install % #{language}", raise_on_non_zero_exit: false
-          execute :wp, "theme list --field=name | xargs -I % wp language theme install % #{language}", raise_on_non_zero_exit: false
+          execute :wp, "language core install #{language} 2> /dev/null", raise_on_non_zero_exit: false
+          execute :wp, "plugin list --field=name | xargs -I % wp language plugin install % #{language} 2> /dev/null", raise_on_non_zero_exit: false
+          execute :wp, "theme list --field=name | xargs -I % wp language theme install % #{language} 2> /dev/null", raise_on_non_zero_exit: false
         end
       end
     end
