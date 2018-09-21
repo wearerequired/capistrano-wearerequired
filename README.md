@@ -112,8 +112,27 @@ cap staging wordpress:clear_opcache
 
 (Requires the [WP-CLI Clear OPcache](https://packagist.org/packages/wearerequired/wp-cli-clear-opcache) plugin.)
 
+## Contributing
+
+### Release Checklist
+
+To build and ship a new version of this gem, you need to follow these steps:
+
+1. Update changelog.
+2. Change version in `lib/capistrano/wearerequired/version.rb`.
+3. Build new gem using `gem build capistrano-wearerequired-<version>.gem`, e.g. `gem build capistrano-wearerequired-1.3.0.gem`.
+4. Publish gem using `gem push capistrano-wearerequired-<version>.gem`, e.g. `gem push capistrano-wearerequired-1.3.0.gem`.
+5. Tag latest commit with `v<version>`, e,g. `v1.3.0`.
+6. Merge `master` branch into `stable`
 
 ## Changelog
+
+### 1.3.0
+
+* Improve defaults for Slackistrano  
+  Prevents warnings when not using Slack notifications at all.
+* Improve WP-CLI error handling  
+  Prevents clutter and early deployment fails when WP-CLI language commands error.
 
 ### 1.2.0
 
