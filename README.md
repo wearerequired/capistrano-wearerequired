@@ -127,21 +127,25 @@ To build and ship a new version of this gem, you need to follow these steps:
 
 ## Changelog
 
+### 1.3.1
+
+* Correct Slackistrano defaults tasks hook.
+
 ### 1.3.0
 
-* Improve defaults for Slackistrano  
+* Improve defaults for Slackistrano
   Prevents warnings when not using Slack notifications at all.
-* Improve WP-CLI error handling  
+* Improve WP-CLI error handling
   Prevents clutter and early deployment fails when WP-CLI language commands error.
 
 ### 1.2.0
 
-* Support WP-CLI 2.0.0 and newer  
+* Support WP-CLI 2.0.0 and newer
   In WP-CLI 2.0.0 the `wp language plugin` and `wp language theme` commands were introduced.
 
 ### 1.1.0
 
-* Support WP-CLI 1.2.0 and newer  
+* Support WP-CLI 1.2.0 and newer
   In WP-CLI v1.2.0 the  `wp core language` command was changed to `wp language core`.
 * Get deployer's name from Git config in `SlackistranoMessagingElements`
 
