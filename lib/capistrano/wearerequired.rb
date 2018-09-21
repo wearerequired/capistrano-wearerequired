@@ -5,6 +5,7 @@ module Capistrano
   end
 end
 
+require "capistrano/wearerequired/slackistrano.rb"
 require "capistrano/wearerequired/slackistrano_messaging_elements"
 require "capistrano/wearerequired/slackistrano_messaging_colors"
 require "capistrano/wearerequired/slackistrano_extended_git_messaging"
