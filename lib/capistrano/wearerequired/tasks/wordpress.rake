@@ -46,8 +46,8 @@ namespace :wordpress do
     end
   end
 
-  after 'deploy:finishing', 'wordpress:install_translations'
-  after 'deploy:finishing', 'wordpress:update_translations'
+  after 'deploy:updated', 'wordpress:install_translations'
+  after 'deploy:updated', 'wordpress:update_translations'
   after 'deploy:finishing', 'wordpress:clear_opcache'
 end
 
