@@ -12,8 +12,8 @@ namespace :wordpress do
     on roles(:app) do
       within release_path do
         execute :wp, "language core install #{languages} 2> /dev/null", raise_on_non_zero_exit: false
-        execute :wp, "plugin list --field=name | xargs -I % wp language plugin install % #{languages} 2> /dev/null", raise_on_non_zero_exit: false
-        execute :wp, "theme list --field=name | xargs -I % wp language theme install % #{languages} 2> /dev/null", raise_on_non_zero_exit: false
+        execute :wp, "language plugin install --all #{languages} 2> /dev/null", raise_on_non_zero_exit: false
+        execute :wp, "language theme install --all #{languages} 2> /dev/null", raise_on_non_zero_exit: false
       end
     end
   end
