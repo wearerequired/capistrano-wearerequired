@@ -1,3 +1,5 @@
+require 'shellwords'
+
 namespace :wordpress do
 
   desc <<-DESC
@@ -5,14 +7,13 @@ namespace :wordpress do
   DESC
   task :install_translations do
     next unless fetch(:wp_languages).any?
+    languages = fetch(:wp_languages).shelljoin
 
     on roles(:app) do
       within release_path do
-        fetch(:wp_languages).each do |language|
-          execute :wp, "language core install #{language} 2> /dev/null", raise_on_non_zero_exit: false
-          execute :wp, "plugin list --field=name | xargs -I % wp language plugin install % #{language} 2> /dev/null", raise_on_non_zero_exit: false
-          execute :wp, "theme list --field=name | xargs -I % wp language theme install % #{language} 2> /dev/null", raise_on_non_zero_exit: false
-        end
+        execute :wp, "language core install #{languages} 2> /dev/null", raise_on_non_zero_exit: false
+        execute :wp, "language plugin install --all #{languages} 2> /dev/null", raise_on_non_zero_exit: false
+        execute :wp, "language theme install --all #{languages} 2> /dev/null", raise_on_non_zero_exit: false
       end
     end
   end
