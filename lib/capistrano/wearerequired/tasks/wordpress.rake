@@ -11,9 +11,9 @@ namespace :wordpress do
 
     on roles(:app) do
       within release_path do
-        execute :wp, "language core install #{languages} 2> /dev/null"
-        execute :wp, "language plugin install --all #{languages} 2> /dev/null"
-        execute :wp, "language theme install --all #{languages} 2> /dev/null"
+        execute :wp, "language core install #{languages} --quiet"
+        execute :wp, "language plugin install --all #{languages} --quiet"
+        execute :wp, "language theme install --all #{languages} --quiet"
       end
     end
   end
@@ -26,9 +26,9 @@ namespace :wordpress do
 
     on roles(:app) do
       within release_path do
-        execute :wp, "language core update"
-        execute :wp, "language plugin update --all"
-        execute :wp, "language theme update --all"
+        execute :wp, "language core update --quiet"
+        execute :wp, "language plugin update --all --quiet"
+        execute :wp, "language theme update --all --quiet"
       end
     end
   end
