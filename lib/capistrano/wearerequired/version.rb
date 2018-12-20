@@ -1,5 +1,5 @@
 module Capistrano
   module Wearerequired
-    VERSION = "2.0.0.alpha"
+    VERSION = "2.0.0.rc"
   end
 end
