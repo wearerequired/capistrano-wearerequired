@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.0.0
+* Requires WP-CLI 2.1.0 and newer  
+  WP-CLI 2.1.0 introduced the `--all` flag for installing translations for all installed plugins/themes.
+* Changed event from `deploy:finishing` to `deploy:updated` to install and update translations before publishing a new release without translations.
+
 ## 1.3.1
 
 * Correct Slackistrano defaults tasks hook.
