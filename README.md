@@ -8,7 +8,7 @@ Capistrano::Wearerequired is a collection of recipes and tasks specialized on Wo
 1. Add this line to your application's Gemfile to install the latest stable version:
 
    ```ruby
-   gem 'capistrano-wearerequired', '~> 1.0'
+   gem 'capistrano-wearerequired', '~> 2.0'
    ```
 
 2. Execute:
