@@ -63,7 +63,7 @@ module Capistrano
       end
 
       def author_icon
-        "https://required.com/content/themes/required-valencia/img/character-%{name}-300x300.png" % { name: deployer.downcase }
+        "https://required.com/content/themes/required-valencia/assets/img/character-%{name}-300x300.png" % { name: deployer.downcase }
       end
 
       def author_link
