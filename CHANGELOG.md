@@ -1,7 +1,12 @@
 # Changelog
 
+## 2.0.1
+* Update dependencies (slackistrano, bundler & rake)
+* Skip Yoast SEO plugin when installing language packages as it caused issues with translated rewrite rules
+* Correct author icon path
+
 ## 2.0.0
-* Requires WP-CLI 2.1.0 and newer  
+* Requires WP-CLI 2.1.0 and newer
   WP-CLI 2.1.0 introduced the `--all` flag for installing translations for all installed plugins/themes.
 * Changed event from `deploy:finishing` to `deploy:updated` to install and update translations before publishing a new release without translations.
 
@@ -11,19 +16,19 @@
 
 ## 1.3.0
 
-* Improve defaults for Slackistrano  
+* Improve defaults for Slackistrano
   Prevents warnings when not using Slack notifications at all.
-* Improve WP-CLI error handling  
+* Improve WP-CLI error handling
   Prevents clutter and early deployment fails when WP-CLI language commands error.
 
 ## 1.2.0
 
-* Support WP-CLI 2.0.0 and newer  
+* Support WP-CLI 2.0.0 and newer
   In WP-CLI 2.0.0 the `wp language plugin` and `wp language theme` commands were introduced.
 
 ## 1.1.0
 
-* Support WP-CLI 1.2.0 and newer  
+* Support WP-CLI 1.2.0 and newer
   In WP-CLI v1.2.0 the  `wp core language` command was changed to `wp language core`.
 * Get deployer's name from Git config in `SlackistranoMessagingElements`
 
