@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = ">= 2.0"
   spec.add_dependency "capistrano", "~> 3.6"
-  spec.add_dependency "slackistrano", "~> 3.1"
+  spec.add_dependency "slackistrano", "~> 3.8"
   spec.add_dependency "capistrano-composer", "~> 0.0.6"
 
   spec.add_development_dependency "bundler", "~> 2.0"
